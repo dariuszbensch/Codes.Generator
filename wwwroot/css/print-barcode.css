@@ -1,0 +1,29 @@
+﻿@media print {
+    @page {
+        size: landscape;
+        margin: 0;
+        size: auto;
+    }
+}
+
+#title, #barcodeNumber {
+    font-family: "Roboto", sans-serif;
+    color: black;
+    padding: 10px 0px;
+    margin: auto;
+    display: block;
+}
+
+#barcode {
+    display: block;
+    margin: auto;
+}
+
+#cont {
+    width: 100%;
+    text-align: center;
+}
+
+header nav, footer {
+    display: none;
+}

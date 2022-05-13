@@ -1,0 +1,95 @@
+﻿<div style="margin: 0px 20px;">
+    <i class="fas fa-qrcode" id="qrcode"></i>
+
+
+
+
+    <!--Menu-->
+    <div class="row codes-space-between">
+        <div class="col-12">
+            QR code
+            <input type="text" class="form-control" id="js-qr-code-value" placeholder="" onkeypress="genCodesOnEnter(event)" style="background-color:RGBA(76,175,80,0.1);">
+        </div>
+    </div>
+
+    <div class="row codes-space-between">
+        <div class="col-4">
+            QR code size
+            <input type="text" class="form-control" id="qrSize" placeholder="21 - 547" value="100" onkeypress="genCodesOnEnter(event)">
+        </div>
+        <div class="col-4">
+            Title size
+            <input type="text" class="form-control" id="titleSize" placeholder="" value="16" onkeypress="genCodesOnEnter(event)">
+        </div>
+        <div class="col-4">
+            Title width
+            <input type="text" class="form-control" id="js-description-width" value="190" onkeypress="genCodesOnEnter(event)">
+        </div>
+    </div>
+
+
+
+    <!--Button-->
+    <div class="row codes-space-between">
+        <div class="col">
+            <input type="button" class="btn btn-success btn-block" onclick="generateQrCode()" value="Generate">
+        </div>
+        <div class="col">
+            <input type="button" class="btn btn-primary btn-block" onclick="printBarcode();" value="Print">
+        </div>
+    </div>
+
+
+
+
+    <!--Generated codes-->
+    <div style="width:190px; padding-top:10px;" id="text-width" class="center">
+        <div class="row">
+
+            <div class="col">
+
+                <div id="qr-code-id"><img  class="row barcode-position js-qr-code qr-code center"></div>
+                <div class="center" id="title" style="        padding: 2px 0px;
+        color: black;
+        word-wrap: break-word;
+        max-width: 100%;
+"></div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function printBarcode() {
+        var mywindow = window.open('', 'PRINT', 'centerscreen');
+
+        mywindow.document.write('<link href="https://codesgenerator.azurewebsites.net/css/print-barcode.css" rel="stylesheet"/>');
+        mywindow.document.write('<link href="https://codesgenerator.azurewebsites.net/css/qr-barcodes-generator.css" rel="stylesheet"/>');
+        mywindow.document.write('<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">');
+
+        //Set width
+        //var width = document.getElementById('js-barcode-target-code128').offsetWidth;
+        var descriptionWidth = $("#js-description-width").val();
+
+        mywindow.document.write('<div id="cont">');
+        mywindow.document.write('<div id="barcode">');
+        mywindow.document.write(document.getElementById('qr-code-id').innerHTML);
+        mywindow.document.write('</div>');
+        mywindow.document.write('<div id="title"  style="font-family: Roboto; color: black; padding: 10px 0px; margin: auto; display: block; font-size:' + $("#titleSize").val() + 'px; width:' + descriptionWidth + 'px; word-wrap:break-word; max-width:100%;">');
+        mywindow.document.write(document.getElementById('title').innerHTML);
+        mywindow.document.write('</div>');
+        mywindow.document.write('</div>');
+
+        mywindow.document.close(); // necessary for IE >= 10
+        mywindow.focus(); // necessary for IE >= 10*/
+
+        setTimeout(function () {
+            mywindow.print();
+        }, 1000);
+
+        return true;
+    }
+</script>

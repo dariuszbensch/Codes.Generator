@@ -1,0 +1,10 @@
+﻿.codes-space-between {
+    margin-bottom: 20px !important;
+}
+
+
+.center {
+    display: block;
+    margin: auto;
+    text-align: center;
+}

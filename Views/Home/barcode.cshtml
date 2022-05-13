@@ -1,0 +1,120 @@
+﻿<div style="padding: 0px 20px;">
+    <i class="fas fa-barcode" id="barcode"></i> 
+
+
+
+
+    <!--Menu-->
+    <div class="row codes-space-between">
+        <div class="col-8">
+            Title
+            <input type="text" class="form-control success" id="js-title" placeholder="" onkeypress="genCodesOnEnter(event)" style="background-color:RGBA(76,175,80,0.1)">
+        </div>
+        <div class="col-2">
+            Size
+            <input type="text" class="form-control" id="js-font-size" value="16" onkeypress="genCodesOnEnter(event)">
+        </div>
+        <div class="col-2">
+            Width
+            <input type="text" class="form-control" id="js-description-width" value="190" onkeypress="genCodesOnEnter(event)">
+        </div>
+    </div>
+
+
+
+
+    <div class="row codes-space-between">
+        <div class="col-6">
+            Barcode number  
+            <input type="text" class="form-control success" id="js-code-number" placeholder="" onkeypress="genCodesOnEnter(event)" style="background-color:RGBA(76,175,80,0.1);">
+        </div>
+        <div class="col-2">
+            Width
+            <input type="text" class="form-control" id="js-bar-width" value="1" onkeypress="genCodesOnEnter(event)">
+        </div>
+        <div class="col-2">
+            Height
+            <input type="text" class="form-control" id="js-bar-height" value="32" onkeypress="genCodesOnEnter(event)">
+        </div>
+        <div class="col-2">
+            Number size
+            <input type="text" class="form-control" id="js-number-size" value="16" onkeypress="genCodesOnEnter(event)">
+        </div>
+    </div>
+
+
+
+
+    <div class="row codes-space-between">
+        <div class="col">
+            <input type="button" class="btn btn-success btn-block" onclick="generateBarcode()" value="Generate">
+        </div>
+        <div class="col">
+            <input type="button" class="btn btn-primary btn-block" onclick="printBarcode();" value="Print">
+        </div>
+    </div>
+
+
+    <br />
+    <br />
+
+
+    <!--Generated codes-->
+    <div class="row">
+        <div class="center" id="main-width" style="width: 190px;
+        height: 156px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        padding-top: 10px;
+">
+            <div class="col">
+                <div class="center" id="title" style="padding: 2px 0px; color: black; word-wrap:break-word; max-width:100%; width: 190px;"></div>
+                <div class="center" id="js-barcode-target-code128" style="color: black;"> </div>
+                <div class="center" id="barcodeNumber" style="padding: 2px 0px; color: black; "></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    function printBarcode() {
+        var mywindow = window.open('', 'PRINT', 'centerscreen');
+
+        mywindow.document.write('<link href="https://codesgenerator.azurewebsites.net/css/print-barcode.css" rel="stylesheet"/>');
+        mywindow.document.write('<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">');
+
+        //Set width
+        //var width = document.getElementById('js-barcode-target-code128').offsetWidth;
+        var descriptionWidth = $("#js-description-width").val();
+
+        mywindow.document.write('<div id="cont">');
+        mywindow.document.write('<div id="title"  style="font-family: Roboto; color: black; padding: 10px 0px; margin: auto; display: block; font-size:' + $("#js-font-size").val() + 'px; width:' + descriptionWidth + 'px; word-wrap:break-word; max-width:100%;">');
+        mywindow.document.write(document.getElementById('title').innerHTML);
+        mywindow.document.write('</div>');
+        mywindow.document.write('<div id="barcode">');
+        mywindow.document.write(document.getElementById('js-barcode-target-code128').innerHTML);
+        mywindow.document.write('</div>');
+        mywindow.document.write('<div id="barcodeNumber" style="font-size:' + $("#js-number-size").val() + 'px;">');
+        mywindow.document.write(document.getElementById('barcodeNumber').innerHTML);
+        mywindow.document.write('</div>');
+        mywindow.document.write('</div>'); 6
+
+        mywindow.document.close(); // necessary for IE >= 10
+        mywindow.focus(); // necessary for IE >= 10*/
+
+        setTimeout(function () {
+            mywindow.print();
+        }, 1000);
+
+        return true;
+    }
+</script>
+
+
+
+
+
+
