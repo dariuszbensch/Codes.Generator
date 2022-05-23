@@ -17,12 +17,12 @@
 #barcode {
     display: block;
     margin: auto;
+    text-align: center;
 }
 
 #cont {
     width: 100%;
     text-align: center;
-    align: center;
 }
 
 header nav, footer {
