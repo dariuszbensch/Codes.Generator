@@ -8,14 +8,14 @@
     <div class="row codes-space-between">
         <div class="col-12">
             QR code
-            <input type="text" class="form-control" id="js-qr-code-value" placeholder="" onkeypress="genCodesOnEnter(event)" style="background-color:RGBA(76,175,80,0.1);">
+            <textarea type="text" rows="1" class="form-control" id="js-qr-code-value" placeholder="" onkeypress="genCodesOnEnter(event)" style="background-color:RGBA(76,175,80,0.1);"></textarea>
         </div>
     </div>
 
     <div class="row codes-space-between">
         <div class="col-4">
             QR code size
-            <textarea type="text" class="form-control" id="qrSize" placeholder="21 - 547" value="100" onkeypress="genCodesOnEnter(event)"></textarea>
+            <input type="text" class="form-control" id="qrSize" placeholder="21 - 547" value="100" onkeypress="genCodesOnEnter(event)">
         </div>
         <div class="col-4">
             Title size
